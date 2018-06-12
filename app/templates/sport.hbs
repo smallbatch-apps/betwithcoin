@@ -1,0 +1,22 @@
+
+<h3 class="subtitle">{{model.category}}</h3>
+<h2 class="title">{{model.name}}</h2>
+
+
+{{#bulma-columns}}
+  {{#bulma-column is2=true}}
+
+  <aside class="menu">
+    <p class="menu-label">Leagues</p>
+    <ul class="menu-list">
+    {{#each model.leagues as |league|}}
+      <li>{{#link-to 'sport.league' league.id}}{{league.name}}{{/link-to}}</li>
+    {{/each}}  
+    </ul>
+    
+  </aside>
+  {{/bulma-column}}
+
+  {{outlet}}
+
+{{/bulma-columns}}

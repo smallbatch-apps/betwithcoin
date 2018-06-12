@@ -1,5 +1,40 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#bulma-nav hasShadow=true class="is-primary navbar"}}
+  {{#bulma-container isFluid=false}}
+    <div class="navbar-brand">
+      {{#link-to 'index' class='navbar-item'}}
+        <span style="margin-right: 10px">{{fa-icon "coins"}}</span> BetWithCoins
+      {{/link-to}}
+    </div>
+    <div class="navbar-start">
 
-{{outlet}}
+      {{#link-to 'about' class='navbar-item'}}About Us{{/link-to}}
+      {{#link-to 'how-it-works' class='navbar-item'}}How It Works{{/link-to}}
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Sports</a>
+
+        <div class="navbar-dropdown">
+          {{#each sortedSports.Sport as |sport|}}
+            {{#link-to 'sport' sport.id class="navbar-item"}}{{sport.name}}{{/link-to}}
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Other</a>
+
+        <div class="navbar-dropdown">
+          {{#each sortedSports.Other as |sport|}}
+            {{#link-to 'sport' sport.id class="navbar-item"}}{{sport.name}}{{/link-to}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/bulma-container}}
+{{/bulma-nav}}
+
+{{#bulma-container isFluid=false}}
+  <div style="margin-top: 20px;">
+    {{outlet}}
+  </div>
+{{/bulma-container}}

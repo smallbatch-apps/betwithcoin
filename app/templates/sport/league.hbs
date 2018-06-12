@@ -1,0 +1,12 @@
+{{#bulma-column is2=true}}
+  <aside class="menu">
+    <p class="menu-label">{{model.name}} Events</p>
+    <ul class="menu-list">
+    {{#each model.events as |event|}}
+      <li>{{#link-to 'sport.league.event' event.id}}{{event.name}}{{/link-to}}</li>
+    {{/each}}  
+    </ul>
+  </aside>
+{{/bulma-column}}
+
+{{outlet}}

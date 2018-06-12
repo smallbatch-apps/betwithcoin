@@ -1,0 +1,18 @@
+{{#bulma-column}}
+  <aside class="menu">
+    <p class="menu-label">{{model.name}} Markets</p>
+  </aside>
+
+  <table class="table is-striped is-hoverable is-fullwidth">
+  {{#each model.markets as |market|}}
+    {{market-row market=market}}
+  {{/each}}
+  </table>
+
+  <a class="button is-small">
+    <span class="icon is-small">
+      {{fa-icon 'download'}}
+    </span>
+    <span>Download</span>
+  </a>
+{{/bulma-column}}
